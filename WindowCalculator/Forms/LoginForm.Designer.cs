@@ -34,25 +34,26 @@
             label2 = new Label();
             label1 = new Label();
             label3 = new Label();
+            checkPass = new CheckBox();
             SuspendLayout();
             // 
             // txtLogin
             // 
             txtLogin.Location = new Point(153, 116);
             txtLogin.Name = "txtLogin";
-            txtLogin.Size = new Size(174, 27);
+            txtLogin.Size = new Size(193, 27);
             txtLogin.TabIndex = 0;
             // 
             // txtPassword
             // 
             txtPassword.Location = new Point(153, 161);
             txtPassword.Name = "txtPassword";
-            txtPassword.Size = new Size(174, 27);
+            txtPassword.Size = new Size(193, 27);
             txtPassword.TabIndex = 1;
             // 
             // btnLogin
             // 
-            btnLogin.Location = new Point(153, 210);
+            btnLogin.Location = new Point(153, 240);
             btnLogin.Name = "btnLogin";
             btnLogin.Size = new Size(112, 29);
             btnLogin.TabIndex = 2;
@@ -90,11 +91,23 @@
             label3.TabIndex = 6;
             label3.Text = "Пароль";
             // 
+            // checkPass
+            // 
+            checkPass.AutoSize = true;
+            checkPass.Location = new Point(195, 194);
+            checkPass.Name = "checkPass";
+            checkPass.Size = new Size(151, 24);
+            checkPass.TabIndex = 7;
+            checkPass.Text = "Показати пароль";
+            checkPass.UseVisualStyleBackColor = true;
+            checkPass.CheckedChanged += checkPass_CheckedChanged;
+            // 
             // LoginForm
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(439, 307);
+            Controls.Add(checkPass);
             Controls.Add(label3);
             Controls.Add(label1);
             Controls.Add(label2);
@@ -116,5 +129,6 @@
         private Label label2;
         private Label label1;
         private Label label3;
+        private CheckBox checkPass;
     }
 }

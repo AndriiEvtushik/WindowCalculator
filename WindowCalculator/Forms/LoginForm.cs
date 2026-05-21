@@ -11,6 +11,7 @@ namespace WindowCalculator
         public LoginForm()
         {
             InitializeComponent();
+            txtPassword.UseSystemPasswordChar = true;
         }
 
         private void btnLogin_Click(object sender, EventArgs e)
@@ -21,7 +22,7 @@ namespace WindowCalculator
 
                 string query = "SELECT Role FROM Users WHERE Login = @l AND Password = @p";
                 SqlCommand cmd = new SqlCommand(query, conn);
-                
+
                 cmd.Parameters.AddWithValue("@l", txtLogin.Text);
                 cmd.Parameters.AddWithValue("@p", txtPassword.Text);
 
@@ -36,6 +37,18 @@ namespace WindowCalculator
                 {
                     MessageBox.Show("Невірний логін або пароль! Спробуйте ще раз.", "Помилка", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 }
+            }
+        }
+
+        private void checkPass_CheckedChanged(object sender, EventArgs e)
+        {
+            if (checkPass.Checked)
+            {
+                txtPassword.UseSystemPasswordChar = false;
+            }
+            else
+            {
+                txtPassword.UseSystemPasswordChar = true;
             }
         }
     }
