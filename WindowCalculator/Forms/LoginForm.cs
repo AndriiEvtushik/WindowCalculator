@@ -6,7 +6,7 @@ namespace WindowCalculator
 {
     public partial class LoginForm : Form
     {
-        public string Role;
+        public string Role = string.Empty;
 
         public LoginForm()
         {
@@ -27,9 +27,9 @@ namespace WindowCalculator
 
                 var result = cmd.ExecuteScalar();
 
-                if(result != null)
+                if (result != null && result != DBNull.Value)
                 {
-                    Role = result.ToString();
+                    Role = result.ToString() ?? string.Empty;
                     this.DialogResult = DialogResult.OK;
                 }
                 else

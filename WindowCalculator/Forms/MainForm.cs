@@ -25,6 +25,16 @@ namespace WindowCalculator.Forms
 
         private void btnCalculate_Click(object sender, EventArgs e)
         {
+            if (string.IsNullOrWhiteSpace(txtWidth.Text) ||
+                string.IsNullOrWhiteSpace(txtHeight.Text) ||
+                string.IsNullOrWhiteSpace(txtSections.Text) ||
+                string.IsNullOrWhiteSpace(txtOpeningSections.Text) ||
+                string.IsNullOrWhiteSpace(txtFramePrice.Text) ||
+                string.IsNullOrWhiteSpace(txtGlassPrice.Text))
+            {
+                MessageBox.Show("Будь ласка, заповніть усі поля.");
+                return;
+            }
             double width = Convert.ToDouble(txtWidth.Text) / 1000;
             double height = Convert.ToDouble(txtHeight.Text) / 1000;
 
